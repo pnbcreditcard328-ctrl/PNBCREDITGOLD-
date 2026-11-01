@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +23,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
         .logo-box {
             background-color: #ffbe00;
@@ -43,6 +44,42 @@
             cursor: pointer;
         }
 
+        /* Slide-out Menu Styles */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #7a0026;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            transition: 0.3s ease;
+            z-index: 1000;
+            padding-top: 60px;
+        }
+        .side-menu.active {
+            right: 0;
+        }
+        .side-menu a {
+            display: block;
+            color: #fff;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .side-menu a:hover {
+            background-color: #9c0031;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #ffbe00;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
         .ticker {
             background-color: #ffe6a3;
             padding: 8px 10px;
@@ -53,6 +90,7 @@
             border-bottom: 1px solid #e0c060;
         }
 
+        /* Auto Scrolling Banner Carousel Styles */
         .banner-container {
             background-color: #fff;
             padding: 15px;
@@ -60,11 +98,19 @@
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
         }
         .banner-img {
-            width: 100%;
-            height: auto;
+            min-width: 100%;
+            height: 150px;
             border-radius: 4px;
+            object-fit: cover;
         }
         .dots {
             display: flex;
@@ -77,6 +123,7 @@
             height: 10px;
             background-color: #b0b0b0;
             border-radius: 50%;
+            cursor: pointer;
         }
         .dot.active {
             background-color: #0088cc;
@@ -197,21 +244,35 @@
         <div class="logo-box">
             <span>pnb</span>
         </div>
-        <div class="hamburger">&#9776;</div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </div>
+
+    <!-- Slide-out Menu (3 Lines Click Event) -->
+    <div class="side-menu" id="sideMenu">
+        <div class="close-btn" onclick="toggleMenu()">&times;</div>
+        <a href="index.html">Home</a>
+        <a href="2.html">Apply Credit Card Online</a>
+        <a href="2.html">Nidaan-Discrepant Application</a>
+        <a href="#">Video KYC</a>
+        <a href="#">Resource Centre</a>
+        <a href="#">Customer Care</a>
     </div>
 
     <div class="ticker">
         Bank has revised the service charges applicable on credit card
     </div>
 
+    <!-- Auto Scrolling Banner Carousel -->
     <div class="banner-container">
-        <img src="https://via.placeholder.com/350x150?text=PNB+Credit+Card+App+Banner" alt="PNB Genie" class="banner-img">
+        <div class="carousel-track" id="carouselTrack">
+            <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80" alt="PNB Banner 1" class="banner-img">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="PNB Banner 2" class="banner-img">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="PNB Banner 3" class="banner-img">
+        </div>
         <div class="dots">
-            <div class="dot active"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+            <div class="dot active" onclick="currentSlide(0)"></div>
+            <div class="dot" onclick="currentSlide(1)"></div>
+            <div class="dot" onclick="currentSlide(2)"></div>
         </div>
     </div>
 
@@ -222,7 +283,6 @@
         </p>
     </div>
 
-    <!-- Action Buttons with Logic (Except Video KYC) -->
     <div class="action-buttons">
         <a href="2.html" class="btn-action">APPLY CREDIT CARD ONLINE</a>
         <a href="#" class="btn-action">COMPLETE YOUR VIDEO KYC</a>
@@ -291,13 +351,45 @@
             <a href="#">Fair Practice Code For Credit Card</a> | 
             <a href="#">Transaction Dispute Form</a> | 
             <a href="#">Do's and Dont's for your Credit Card usage</a> | 
-            <a href="#">FAQs on IVR 3D Secure</a> | 
-            <a href="#">Credit Card Business Policy</a> | 
+            <a href="#"Credit Card Business Policy</a> | 
             <a href="#">CO-Branded Credit Cards</a> | 
             <a href="#">Tokenization FAQ's(English)</a> | 
             <a href="#">Tokenization FAQ's(Hindi)</a>
         </p>
     </div>
 
+    <script>
+        // Hamburger Menu Toggle Logic
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Auto Scrolling Banner Carousel Logic
+        let currentIndex = 0;
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = dots.length;
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function currentSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        // Har 3 second mein banner apne aap change hoga
+        setInterval(nextSlide, 3000);
+    </script>
 </body>
 </html>
