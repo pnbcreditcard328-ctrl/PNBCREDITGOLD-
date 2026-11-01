@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNB Credit Card</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #ffbe00; /* Main Yellow Background */
+            color: #333;
+        }
+
+        /* 1. Top Navigation Bar */
+        .navbar {
+            background-color: #7a0026; /* PNB Maroon */
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-box {
+            background-color: #ffbe00;
+            padding: 5px 12px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo-box span {
+            color: #7a0026;
+            font-weight: bold;
+            font-size: 22px;
+        }
+        .hamburger {
+            color: #ffbe00;
+            font-size: 26px;
+            cursor: pointer;
+        }
+
+        /* 2. Marquee Ticker */
+        .ticker {
+            background-color: #ffe6a3;
+            padding: 8px 10px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            border-bottom: 1px solid #e0c060;
+        }
+
+        /* 3. Hero Banner Area */
+        .banner-container {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .banner-img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #b0b0b0;
+            border-radius: 50%;
+        }
+        .dot.active {
+            background-color: #0088cc;
+        }
+
+        /* 4. Text Welcome Section */
+        .welcome-box {
+            background-color: #fff3db;
+            padding: 15px;
+            margin: 15px;
+            border-radius: 4px;
+        }
+        .welcome-box h2 {
+            color: #7a0026;
+            font-size: 18px;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .welcome-box p {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #222;
+        }
+        .welcome-box a {
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* 5. Main Action Buttons */
+        .action-buttons {
+            padding: 0 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .btn-action {
+            background-color: #7a0026;
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            padding: 10px 5px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            border-radius: 3px;
+        }
+
+        /* 6. Content Cards (Important Message & Resource Centre) */
+        .content-card {
+            background-color: #fff1d6;
+            border: 2px solid #7a0026;
+            border-radius: 20px;
+            margin: 0 15px 20px 15px;
+            overflow: hidden;
+        }
+        .card-header {
+            background-color: #7a0026;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .card-body {
+            padding: 15px;
+        }
+        .card-body ul {
+            list-style-type: disc;
+            padding-left: 18px;
+        }
+        .card-body li {
+            font-size: 13px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            color: #222;
+        }
+        .card-body li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 7. Compliance Badge */
+        .badge-box {
+            background-color: #2b3040;
+            border: 2px solid #7a0026;
+            border-radius: 20px;
+            margin: 0 15px 20px 15px;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+        .badge-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        .badge-footer {
+            background-color: #f37023;
+            color: #fff;
+            padding: 10px;
+            border-radius: 0 0 18px 18px;
+            margin: 15px -20px -20px -20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* 8. Footer Links */
+        .footer {
+            padding: 20px 15px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.8;
+            color: #7a0026;
+            border-top: 1px solid rgba(122, 0, 38, 0.2);
+        }
+        .footer a {
+            color: #7a0026;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Header Bar -->
+    <div class="navbar">
+        <div class="logo-box">
+            <span>pnb</span>
+        </div>
+        <div class="hamburger">&#9776;</div>
+    </div>
+
+    <!-- 2. Notice Ticker -->
+    <div class="ticker">
+        Bank has revised the service charges applicable on credit card
+    </div>
+
+    <!-- 3. Banner Image Carousel Section -->
+    <div class="banner-container">
+        <!-- Aap yahan apni banner image replace kar sakte hain -->
+        <img src="https://via.placeholder.com/350x150?text=PNB+Credit+Card+App+Banner" alt="PNB Genie" class="banner-img">
+        <div class="dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- 4. Text Content Box -->
+    <div class="welcome-box">
+        <h2>Welcome to the growing family of PNB Credit Cardholders</h2>
+        <p>
+            PNB offers various Credit Cards for customers of every segment. From spending on your day-to-day needs to splurging on your desires, we have something in store for all purposes. Your journey to financial freedom starts here. Explore our range of credit cards <a href="#">here</a> to suit your needs.
+        </p>
+    </div>
+
+    <!-- 5. Action Link Buttons -->
+    <div class="action-buttons">
+        <a href="#" class="btn-action">APPLY CREDIT CARD ONLINE</a>
+        <a href="#" class="btn-action">COMPLETE YOUR VIDEO KYC</a>
+        <a href="#" class="btn-action">NIDAAN-DISCREPANT APPLICATION</a>
+    </div>
+
+    <!-- 6. Important Message Card -->
+    <div class="content-card">
+        <div class="card-header">IMPORTANT MESSAGE</div>
+        <div class="card-body">
+            <ul>
+                <li>Prevent fraud! PNB or its employees never ask for your details such as Card number, card expiry, CVV, OTP or password. Do not share these with anyone over call or email.</li>
+                <li>Revised service charges w.e.f. 01st Nov 2026.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 7. Resource Centre Card -->
+    <div class="content-card">
+        <div class="card-header">RESOURCE CENTRE</div>
+        <div class="card-body">
+            <ul>
+                <li>Credit card Digital onboarding FAQ</li>
+                <li>Key Fact Statement</li>
+                <li>Credit Card Application Form</li>
+                <li>Nomination for RuPay Credit Cards</li>
+                <li>Add on Card Application form</li>
+                <li>Reward Point redemption form</li>
+                <li>Auto Debit Request Form</li>
+                <li>BT Form</li>
+                <li>Easy EMI Form</li>
+                <li>Balance EMI Form</li>
+                <li>FAQ credit card Video KYC</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 8. Quick Links Card -->
+    <div class="content-card">
+        <div class="card-header">QUICK LINKS</div>
+        <div class="card-body">
+            <ul>
+                <li>Reward Point Notice (English)</li>
+                <li>Reward Point Notice (Hindi)</li>
+                <li>How to Apply for a New Card</li>
+                <li>How to Change Address</li>
+                <li>Offers and Rewards</li>
+                <li>Customer Care</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 9. Compliance Badge Box -->
+    <div class="badge-box">
+        <div class="badge-title">PCI DSS COMPLIANT</div>
+        <div class="badge-footer">ASSESSED BY CONTROLCASE</div>
+    </div>
+
+    <!-- 10. Footer Section -->
+    <div class="footer">
+        <p>
+            <a href="#">Home</a> | <a href="#">Site Map</a> | <a href="#">PNB Apps</a> | 
+            <a href="#">Most Important Terms and Conditions (ENGLISH)</a> | 
+            <a href="#">Most Important Terms and Conditions (MITC HINDI)</a> | 
+            <a href="#">Privacy Policy</a> | <a href="#">Disclaimer</a> | 
+            <a href="#">Do Not Call Registry</a> | <a href="#">User Guide</a> | 
+            <a href="#">List of Centres</a> | <a href="#">Helpline</a> | 
+            <a href="#">RuPay Insurance Programme</a> | <a href="#">FAQ's</a> | 
+            <a href="#">Card Holder Agreement</a> | <a href="#">Grievance Redressal</a> | 
+            <a href="#">Schedule of Fees and Charges</a> | 
+            <a href="#">Fair Practice Code For Credit Card</a> | 
+            <a href="#">Transaction Dispute Form</a> | 
+            <a href="#">Do's and Dont's for your Credit Card usage</a> | 
+            <a href="#">FAQs on IVR 3D Secure</a> | 
+            <a href="#">Credit Card Business Policy</a> | 
+            <a href="#">CO-Branded Credit Cards</a> | 
+            <a href="#">Tokenization FAQ's(English)</a> | 
+            <a href="#">Tokenization FAQ's(Hindi)</a>
+        </p>
+    </div>
+
+</body>
+</html>

