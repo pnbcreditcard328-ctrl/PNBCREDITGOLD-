@@ -13,13 +13,12 @@
         }
 
         body {
-            background-color: #ffbe00; /* Main Yellow Background */
+            background-color: #ffbe00;
             color: #333;
         }
 
-        /* 1. Top Navigation Bar */
         .navbar {
-            background-color: #7a0026; /* PNB Maroon */
+            background-color: #7a0026;
             padding: 12px 15px;
             display: flex;
             justify-content: space-between;
@@ -44,7 +43,6 @@
             cursor: pointer;
         }
 
-        /* 2. Marquee Ticker */
         .ticker {
             background-color: #ffe6a3;
             padding: 8px 10px;
@@ -55,7 +53,6 @@
             border-bottom: 1px solid #e0c060;
         }
 
-        /* 3. Hero Banner Area */
         .banner-container {
             background-color: #fff;
             padding: 15px;
@@ -85,7 +82,6 @@
             background-color: #0088cc;
         }
 
-        /* 4. Text Welcome Section */
         .welcome-box {
             background-color: #fff3db;
             padding: 15px;
@@ -108,7 +104,6 @@
             font-weight: bold;
         }
 
-        /* 5. Main Action Buttons */
         .action-buttons {
             padding: 0 15px;
             display: flex;
@@ -121,14 +116,13 @@
             color: #ffffff;
             text-decoration: none;
             text-align: center;
-            padding: 10px 5px;
+            padding: 12px 5px;
             font-size: 13px;
             font-weight: bold;
             letter-spacing: 0.5px;
             border-radius: 3px;
         }
 
-        /* 6. Content Cards (Important Message & Resource Centre) */
         .content-card {
             background-color: #fff1d6;
             border: 2px solid #7a0026;
@@ -158,11 +152,7 @@
             line-height: 1.4;
             color: #222;
         }
-        .card-body li:last-child {
-            margin-bottom: 0;
-        }
 
-        /* 7. Compliance Badge */
         .badge-box {
             background-color: #2b3040;
             border: 2px solid #7a0026;
@@ -187,7 +177,6 @@
             font-size: 14px;
         }
 
-        /* 8. Footer Links */
         .footer {
             padding: 20px 15px;
             text-align: center;
@@ -204,7 +193,6 @@
 </head>
 <body>
 
-    <!-- 1. Header Bar -->
     <div class="navbar">
         <div class="logo-box">
             <span>pnb</span>
@@ -212,14 +200,11 @@
         <div class="hamburger">&#9776;</div>
     </div>
 
-    <!-- 2. Notice Ticker -->
     <div class="ticker">
         Bank has revised the service charges applicable on credit card
     </div>
 
-    <!-- 3. Banner Image Carousel Section -->
     <div class="banner-container">
-        <!-- Aap yahan apni banner image replace kar sakte hain -->
         <img src="https://via.placeholder.com/350x150?text=PNB+Credit+Card+App+Banner" alt="PNB Genie" class="banner-img">
         <div class="dots">
             <div class="dot active"></div>
@@ -230,7 +215,6 @@
         </div>
     </div>
 
-    <!-- 4. Text Content Box -->
     <div class="welcome-box">
         <h2>Welcome to the growing family of PNB Credit Cardholders</h2>
         <p>
@@ -238,14 +222,13 @@
         </p>
     </div>
 
-    <!-- 5. Action Link Buttons -->
+    <!-- Action Buttons with Logic (Except Video KYC) -->
     <div class="action-buttons">
-        <a href="#" class="btn-action">APPLY CREDIT CARD ONLINE</a>
+        <a href="2.html" class="btn-action">APPLY CREDIT CARD ONLINE</a>
         <a href="#" class="btn-action">COMPLETE YOUR VIDEO KYC</a>
-        <a href="#" class="btn-action">NIDAAN-DISCREPANT APPLICATION</a>
+        <a href="2.html" class="btn-action">NIDAAN-DISCREPANT APPLICATION</a>
     </div>
 
-    <!-- 6. Important Message Card -->
     <div class="content-card">
         <div class="card-header">IMPORTANT MESSAGE</div>
         <div class="card-body">
@@ -256,7 +239,6 @@
         </div>
     </div>
 
-    <!-- 7. Resource Centre Card -->
     <div class="content-card">
         <div class="card-header">RESOURCE CENTRE</div>
         <div class="card-body">
@@ -276,7 +258,6 @@
         </div>
     </div>
 
-    <!-- 8. Quick Links Card -->
     <div class="content-card">
         <div class="card-header">QUICK LINKS</div>
         <div class="card-body">
@@ -291,13 +272,11 @@
         </div>
     </div>
 
-    <!-- 9. Compliance Badge Box -->
     <div class="badge-box">
         <div class="badge-title">PCI DSS COMPLIANT</div>
         <div class="badge-footer">ASSESSED BY CONTROLCASE</div>
     </div>
 
-    <!-- 10. Footer Section -->
     <div class="footer">
         <p>
             <a href="#">Home</a> | <a href="#">Site Map</a> | <a href="#">PNB Apps</a> | 
