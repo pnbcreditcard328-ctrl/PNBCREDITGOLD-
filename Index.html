@@ -3,50 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply Now | PNB Credit Card</title>
+    <title>Apply Now | ICICI Bank Credit Card</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f6f9;
+            background-color: #fdf8f4;
             color: #333;
         }
         
+        /* ICICI Header Style */
         .header {
-            background-color: #7a0c24;
+            background-color: #d96800;
             color: white;
-            padding: 25px 20px 50px 20px;
+            padding: 25px 20px 60px 20px;
             text-align: left;
         }
-        .header .sub { color: #f4be41; font-weight: bold; font-size: 14px; letter-spacing: 1px; }
+        .header .sub { color: #ffe6cc; font-weight: bold; font-size: 14px; letter-spacing: 1px; }
         .header h2 { margin: 10px 0 5px 0; font-size: 22px; }
-        .header p { margin: 0; font-size: 13px; opacity: 0.8; }
+        .header p { margin: 0; font-size: 13px; opacity: 0.9; }
 
+        /* Form Container overlapping header */
         .form-container {
             background-color: white;
-            margin: -30px 15px 25px 15px;
+            margin: -35px 15px 25px 15px;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
         }
-        .form-container h3 { margin-top: 0; font-size: 20px; }
+        .form-container h3 { margin-top: 0; font-size: 20px; color: #d96800; }
         .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; font-weight: bold; font-size: 14px; margin-bottom: 5px; }
+        .input-group label { display: block; font-weight: bold; font-size: 14px; margin-bottom: 5px; color: #444; }
         .input-group span { display: block; font-size: 12px; color: gray; margin-bottom: 8px; }
-        .input-group input {
+        .input-group input, .input-group select {
             width: 100%;
             padding: 14px;
             border: 1px solid #ccc;
             border-radius: 8px;
             box-sizing: border-box;
             font-size: 15px;
+            background-color: #fff;
         }
-        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; margin-bottom: 20px; }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; margin-bottom: 20px; color: #555; line-height: 1.4; }
         .checkbox-group input { margin-top: 3px; }
         
         .submit-btn {
-            background-color: #7a0c24;
+            background-color: #d96800;
             color: white;
             width: 100%;
             padding: 15px;
@@ -57,50 +60,56 @@
             cursor: pointer;
         }
 
-        .fee-section {
-            background-color: #1e293b;
-            color: white;
-            margin: 20px 15px;
+        /* Exclusive Privileges Slider Section */
+        .privileges-section {
+            margin: 25px 15px;
+            text-align: center;
+        }
+        .privileges-section h3 { font-size: 20px; color: #333; margin-bottom: 15px; }
+        .card-slider {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 10px;
+        }
+        .privilege-card {
+            min-width: 260px;
+            flex: 1;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            scroll-snap-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .privilege-card img-placeholder { font-size: 30px; }
+        .privilege-card h4 { font-size: 16px; color: #d96800; margin: 10px 0 5px 0; }
+        .privilege-card p { font-size: 12px; color: #666; margin: 0; }
+
+        /* FAQs Section */
+        .faq-section {
+            background-color: white;
+            margin: 25px 15px;
             padding: 20px;
             border-radius: 15px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
         }
-        .fee-title { font-size: 12px; color: #f4be41; font-weight: bold; }
-        .fee-main { font-size: 24px; font-weight: bold; margin: 10px 0 20px 0; }
-        .fee-grid { display: flex; gap: 10px; }
-        .fee-box {
-            flex: 1;
-            background-color: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 15px 10px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .fee-box .amt { color: #f4be41; font-weight: bold; font-size: 18px; }
-        .fee-box .lbl { font-size: 11px; color: #ccc; margin-top: 5px; }
-
-        .benefits-section { margin: 25px 15px; }
-        .benefits-section h4 { font-size: 18px; margin-bottom: 15px; }
-        .benefit-card {
-            background-color: white;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 12px;
+        .faq-section h3 { margin-top: 0; color: #d96800; font-size: 18px; border-bottom: 2px solid #fff2e6; padding-bottom: 10px; }
+        .faq-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-weight: bold;
+            color: #444;
         }
-        .benefit-icon {
-            font-size: 24px;
-            background-color: #ffeef2;
-            padding: 10px;
-            border-radius: 8px;
-            min-width: 30px;
-            text-align: center;
-        }
-        .benefit-text h5 { margin: 0 0 4px 0; font-size: 15px; }
-        .benefit-text p { margin: 0; font-size: 12px; color: gray; }
+        .faq-item span { color: #d96800; font-size: 18px; }
 
+        /* Loading Modal */
         #loadingModal {
             display: none;
             position: fixed;
@@ -122,7 +131,7 @@
         .spinner {
             width: 50px; height: 50px;
             border: 4px solid #f3f3f3;
-            border-top: 4px solid #7a0c24;
+            border-top: 4px solid #d96800;
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 0 auto 20px auto;
@@ -135,21 +144,34 @@
         .modal-content p { color: #666; font-size: 13px; margin-bottom: 20px; }
         .step-list { text-align: left; font-size: 13px; color: #444; }
         .step-item { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; opacity: 0.4; transition: 0.3s; }
-        .step-item.active { opacity: 1; font-weight: bold; color: #7a0c24; }
+        .step-item.active { opacity: 1; font-weight: bold; color: #d96800; }
         .step-item.done { opacity: 1; color: #10b981; }
+
+        /* Custom Alert */
+        #customAlertModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Header Section -->
     <div class="header">
-        <div class="sub">PNB Credit Card</div>
-        <h2>PNB Credit Card Lifetime Free</h2>
-        <p>Exclusive financial benefits with zero annual maintenance charges.</p>
+        <div class="sub">ICICI Bank</div>
+        <h2>Lights. Camera. Benefits. Make your movie nights twice as special.</h2>
+        <p>No joining fee & No annual fee. Enjoy exclusive movie & shopping rewards.</p>
     </div>
 
+    <!-- Application Form Section -->
     <form id="applyForm" class="form-container">
-        <h3>Apply Now</h3>
-        <p style="color: gray; font-size: 13px; margin-top: -8px; margin-bottom: 20px;">Fill details to check your eligibility</p>
+        <h3>Fill the form below</h3>
+        <p style="color: gray; font-size: 13px; margin-top: -5px; margin-bottom: 20px;">Enter your details to apply instantly</p>
         
         <div class="input-group">
             <label>Full Name *</label>
@@ -164,77 +186,96 @@
         </div>
 
         <div class="input-group">
+            <label>Email *</label>
+            <span>For instant updates and statements</span>
+            <input type="email" id="email" placeholder="rahul@example.com" required>
+        </div>
+
+        <div class="input-group">
+            <label>PAN Number *</label>
+            <span>10-character alphanumeric PAN</span>
+            <input type="text" id="pan" maxlength="10" placeholder="ABCDE1234F" style="text-transform: uppercase;" required>
+        </div>
+
+        <div class="input-group">
             <label>Date of Birth *</label>
             <span>Format: DD/MM/YYYY (must be 18+)</span>
             <input type="text" id="dob" maxlength="10" placeholder="DD/MM/YYYY" required>
         </div>
 
-        <div class="checkbox-group">
-            <input type="checkbox" id="terms" required>
-            <label for="terms">I agree to the Privacy Policy and consent to being contacted regarding my application.</label>
+        <div class="input-group">
+            <label>Profession *</label>
+            <select id="profession" required>
+                <option value="">Select Profession</option>
+                <option value="Salaried">Salaried</option>
+                <option value="Self-Employed">Self-Employed</option>
+                <option value="Business">Business</option>
+            </select>
         </div>
 
-        <button type="submit" class="submit-btn">Submit Application →</button>
+        <div class="checkbox-group">
+            <input type="checkbox" id="terms" required>
+            <label for="terms">I consent to be contacted by ICICI Bank regarding this product via Call/ SMS/ Email/ WhatsApp/ RCS. I accept ICICI Bank's Terms & Conditions.</label>
+        </div>
+
+        <button type="submit" class="submit-btn">Apply Now</button>
     </form>
 
+    <!-- Exclusive Privileges Slider -->
+    <div class="privileges-section">
+        <h3>Exclusive Privileges</h3>
+        <div class="card-slider">
+            <div class="privilege-card">
+                <div style="font-size:28px;">🎬</div>
+                <h4>BookMyShow Offer</h4>
+                <p>Buy One Get One offer on movie tickets up to ₹500/- off.</p>
+            </div>
+            <div class="privilege-card">
+                <div style="font-size:28px;">✈️</div>
+                <h4>Airport Lounge</h4>
+                <p>Complimentary domestic lounge access per quarter.</p>
+            </div>
+            <div class="privilege-card">
+                <div style="font-size:28px;">🛍️</div>
+                <h4>Reward Points</h4>
+                <p>Earn accelerated reward points on online shopping.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQs Section -->
+    <div class="faq-section">
+        <h3>FAQs</h3>
+        <div class="faq-item">What is the lowest Credit Card limit? <span>+</span></div>
+        <div class="faq-item">How do I see my Credit Card number online? <span>+</span></div>
+        <div class="faq-item">How can I redeem Credit Card points? <span>+</span></div>
+        <div class="faq-item">How do I avail the BookMyShow offer? <span>+</span></div>
+    </div>
+
+    <!-- Loading Modal -->
     <div id="loadingModal">
         <div class="modal-content">
             <div class="spinner"></div>
-            <h3>Success!</h3>
-            <p>Redirecting...</p>
+            <h3>Processing...</h3>
+            <p>Please wait while we verify your details</p>
             <div class="step-list">
                 <div class="step-item active" id="step1">● Validating your details...</div>
-                <div class="step-item" id="step2">● Checking eligibility...</div>
-                <div class="step-item" id="step3">● Securing your application...</div>
+                <div class="step-item" id="step2">● Checking ICICI eligibility...</div>
+                <div class="step-item" id="step3">● Securing application...</div>
             </div>
         </div>
     </div>
 
+    <!-- Custom Alert Modal -->
     <div id="customAlertModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index:10000; justify-content:center; align-items:center;">
         <div style="background-color:white; width:85%; max-width:320px; padding:25px 20px; border-radius:15px; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.2);">
-            <h3 style="margin:0 0 10px 0; color:#7a0c24; font-size:18px;">⚠️ Error</h3>
+            <h3 style="margin:0 0 10px 0; color:#d96800; font-size:18px;">⚠️ Error</h3>
             <p id="alertMessage" style="color:#444; font-size:14px; margin-bottom:20px; line-height:1.4;"></p>
-            <button onclick="closeCustomAlert()" style="background-color:#7a0c24; color:white; border:none; padding:10px 25px; border-radius:6px; font-size:14px; font-weight:bold; cursor:pointer;">OK</button>
+            <button onclick="closeCustomAlert()" style="background-color:#d96800; color:white; border:none; padding:10px 25px; border-radius:6px; font-size:14px; font-weight:bold; cursor:pointer;">OK</button>
         </div>
     </div>
 
-    <div class="fee-section">
-        <div class="fee-title">ANNUAL FEE</div>
-        <div class="fee-main">₹0 — Lifetime</div>
-        <div class="fee-grid">
-            <div class="fee-box">
-                <div class="amt">₹0</div>
-                <div class="lbl">Joining Fee</div>
-            </div>
-            <div class="fee-box">
-                <div class="amt">₹0</div>
-                <div class="lbl">Annual Fee</div>
-            </div>
-            <div class="fee-box">
-                <div class="amt">∞</div>
-                <div class="lbl">No Charges</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="benefits-section">
-        <h4>Amazing Benefits</h4>
-        <div class="benefit-card">
-            <div class="benefit-icon">✈️</div>
-            <div class="benefit-text">
-                <h5>12 Airport Lounge Access</h5>
-                <p>Relax in style across 1200+ airport lounges</p>
-            </div>
-        </div>
-        <div class="benefit-card">
-            <div class="benefit-icon">🛍️</div>
-            <div class="benefit-text">
-                <h5>10% Shopping Discount</h5>
-                <p>Enjoy instant discount at top brands & online stores</p>
-            </div>
-        </div>
-    </div>
-
+    <!-- Script Validation & Redirection -->
     <script>
         function showCustomAlert(msg) {
             document.getElementById('alertMessage').innerText = msg;
